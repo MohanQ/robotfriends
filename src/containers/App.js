@@ -4,6 +4,14 @@ import Scroll from '../components/Scroll';
 import SearchBox from '../components/SearchBox';
 import './App.css'
 import ErrorBoundry from '../components/ErrorBoundry';
+import {setSearchField } from '../actions'
+import {connect} from 'react-redux'
+
+const mapStateToProps = state => {
+    return {
+      searchField: state.searchRobots.searchField  
+    };
+};
 
 class App extends Component {
     constructor() {
@@ -47,4 +55,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);
